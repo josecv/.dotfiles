@@ -117,7 +117,28 @@ dcleanup() {
     docker rmi $(docker images --filter dangling=true -q 2>/dev/null) 2>/dev/null
 }
 
-POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context kubecontext vcs virtualenv newline dir)
+jose::fast_git() {
+    color=""
+    if [ -d .git ]; then
+        branch_name="$(git symbolic-ref HEAD 2>/dev/null)" ||
+        branch_name=""     # detached HEAD
+        if [ -z $branch_name ]; then
+            branch_name="$(git rev-parse HEAD)"
+        else
+            branch_name=${branch_name##refs/heads/}
+        fi
+        state="$(git diff --stat)"
+        diff=""
+        if [ -n "$state" ]; then
+            diff="%F{red}+%f"
+        fi
+        echo "$branch_name $diff"
+    fi
+}
+
+POWERLEVEL9K_CUSTOM_FAST_GIT="jose::fast_git"
+POWERLEVEL9K_CUSTOM_FAST_GIT_BACKGROUND="green"
+POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context kubecontext custom_fast_git virtualenv newline dir)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status root_indicator background_jobs time)
 POWERLEVEL9K_VCS_GIT_HOOKS=(vcs-detect-changes git-aheadbehind git-tagname)
 
