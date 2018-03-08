@@ -103,11 +103,7 @@ source $ZSH/oh-my-zsh.sh
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-# Au stuff, required for kc access and std python setup
-eval "$(pyenv init -)"
-export PATH="$PATH:$HOME/bin"
-
-# Custom stuff.
+. $HOME/.private_zshrc
 
 bindkey -v
 bindkey -M vicmd "^V" edit-command-line
