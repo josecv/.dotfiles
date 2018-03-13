@@ -21,6 +21,7 @@ Plugin 'honza/vim-snippets'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'mileszs/ack.vim'
 Plugin 'vito-c/jq.vim'
+Plugin 'easymotion/vim-easymotion'
 
 call vundle#end()
 filetype plugin indent on
@@ -50,7 +51,7 @@ nnoremap <LEADER>mr :VimuxRunCommand "mrn"<CR>
 " Useful abbreviations
 cnoreabbrev ag Ack
 cnoreabbrev Md Mvn docker
-
+cnoreabbrev mcf MultipleCursorsFind
 
 " Plugin configs
 let test#strategy = "vimux"
