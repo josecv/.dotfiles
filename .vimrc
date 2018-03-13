@@ -38,8 +38,6 @@ set shiftwidth=4
 set nowrap
 let mapleader=" "
 
-autocmd Filetype java setlocal tabstop=2 softtabstop=2 shiftwidth=2
-
 " Shortcuts
 nnoremap <LEADER>jd :JavaSearch -x declarations<CR>
 nnoremap <LEADER>js :JavaSearch<CR>

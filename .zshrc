@@ -115,7 +115,7 @@ dcleanup() {
 
 jose::fast_git() {
     color=""
-    if [ -d .git ]; then
+    if [ -d .git ] || git rev-parse --git-dir 2> /dev/null; then
         branch_name="$(git symbolic-ref HEAD 2>/dev/null)" ||
         branch_name=""     # detached HEAD
         if [ -z $branch_name ]; then
@@ -135,7 +135,7 @@ jose::fast_git() {
 POWERLEVEL9K_CUSTOM_FAST_GIT="jose::fast_git"
 POWERLEVEL9K_CUSTOM_FAST_GIT_BACKGROUND="green"
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context kubecontext custom_fast_git virtualenv newline dir)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status root_indicator background_jobs time)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status root_indicator background_jobs todo time)
 POWERLEVEL9K_VCS_GIT_HOOKS=(vcs-detect-changes git-aheadbehind git-tagname)
 
 export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
