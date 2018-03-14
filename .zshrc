@@ -115,7 +115,7 @@ dcleanup() {
 
 jose::fast_git() {
     color=""
-    if [ -d .git ] || git rev-parse --git-dir 2> /dev/null; then
+    if [ -d .git ] || git rev-parse --git-dir > /dev/null 2> /dev/null; then
         branch_name="$(git symbolic-ref HEAD 2>/dev/null)" ||
         branch_name=""     # detached HEAD
         if [ -z $branch_name ]; then
