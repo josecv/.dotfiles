@@ -48,6 +48,15 @@ nnoremap <LEADER>t :VimuxRunCommand ""<LEFT>
 nnoremap <LEADER>T :VimuxCloseRunner<CR>
 nnoremap <LEADER>mr :VimuxRunCommand "mrn"<CR>
 
+" Easymotion overwin motions
+map  <LEADER>f<LEADER> <Plug>(easymotion-bd-f)
+nmap <LEADER>f<LEADER> <Plug>(easymotion-overwin-f)
+map <LEADER>l<LEADER> <Plug>(easymotion-bd-jk)
+nmap <LEADER>l<LEADER> <Plug>(easymotion-overwin-line)
+map  <LEADER>w<LEADER> <Plug>(easymotion-bd-w)
+nmap <LEADER>w<LEADER> <Plug>(easymotion-overwin-w)
+
+
 " Useful abbreviations
 cnoreabbrev ag Ack
 cnoreabbrev Md Mvn docker
