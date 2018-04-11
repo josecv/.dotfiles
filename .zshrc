@@ -142,7 +142,9 @@ setopt noincappendhistory
 setopt nosharehistory
 
 export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
+
 alias mrn="MAVEN_OPTS='-Dspring.profiles.active=local-dev,disable-auth' mvn spring-boot:run"
+alias kgpg='k get pods | grep'
 
 source /usr/local/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 export ZSH_HIGHLIGHT_HIGHLIGHTERS_DIR=/usr/local/share/zsh-syntax-highlighting/highlighters
