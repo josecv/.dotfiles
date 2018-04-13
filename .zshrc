@@ -23,9 +23,11 @@ antigen bundle kubectl
 antigen bundle python
 antigen bundle tmux
 
-antigen bundle zsh-users/zsh-syntax-highlighting
+antigen bundle MichaelAquilina/zsh-you-should-use
 
 antigen theme bhilburn/powerlevel9k powerlevel9k
+
+antigen bundle zsh-users/zsh-syntax-highlighting
 
 antigen apply
 
