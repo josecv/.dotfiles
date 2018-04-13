@@ -1,35 +1,31 @@
 DOTFILES=$HOME/.dotfiles
 
 # Powerlevel9K config
-POWERLEVEL9K_INSTALLATION_PATH=$ANTIGEN_BUNDLES/bhilburn/powerlevel9k
 POWERLEVEL9K_CUSTOM_FAST_GIT="jose::fast_git"
 POWERLEVEL9K_CUSTOM_FAST_GIT_BACKGROUND="green"
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context kubecontext custom_fast_git virtualenv newline dir)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status root_indicator background_jobs todo time)
 POWERLEVEL9K_VCS_GIT_HOOKS=(vcs-detect-changes git-aheadbehind git-tagname)
 
-. $DOTFILES/antigen.zsh
-antigen use oh-my-zsh
+source <(antibody init)
 
 # Sadly Au uses a helm version too old for the oh-my-zsh plugin to work with it
-antigen bundle git
-antigen bundle osx
-antigen bundle aws
-antigen bundle brew
-antigen bundle docker
-antigen bundle github
-antigen bundle mvn
-antigen bundle kubectl
-antigen bundle python
-antigen bundle tmux
+antibody bundle robbyrussell/oh-my-zsh folder:plugins/git
+antibody bundle robbyrussell/oh-my-zsh folder:plugins/osx
+antibody bundle robbyrussell/oh-my-zsh folder:plugins/aws
+antibody bundle robbyrussell/oh-my-zsh folder:plugins/brew
+antibody bundle robbyrussell/oh-my-zsh folder:plugins/docker
+antibody bundle robbyrussell/oh-my-zsh folder:plugins/github
+antibody bundle robbyrussell/oh-my-zsh folder:plugins/mvn
+antibody bundle robbyrussell/oh-my-zsh folder:plugins/kubectl
+antibody bundle robbyrussell/oh-my-zsh folder:plugins/python
+antibody bundle robbyrussell/oh-my-zsh folder:plugins/tmux
 
-antigen bundle MichaelAquilina/zsh-you-should-use
+antibody bundle MichaelAquilina/zsh-you-should-use
 
-antigen theme bhilburn/powerlevel9k powerlevel9k
+antibody bundle bhilburn/powerlevel9k
 
-antigen bundle zsh-users/zsh-syntax-highlighting
-
-antigen apply
+antibody bundle zsh-users/zsh-syntax-highlighting
 
 . $HOME/.private_zshrc
 . $DOTFILES/fun.zsh
