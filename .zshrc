@@ -20,6 +20,7 @@ antibody bundle robbyrussell/oh-my-zsh folder:plugins/github
 antibody bundle robbyrussell/oh-my-zsh folder:plugins/mvn
 antibody bundle robbyrussell/oh-my-zsh folder:plugins/kubectl
 antibody bundle robbyrussell/oh-my-zsh folder:plugins/python
+antibody bundle robbyrussell/oh-my-zsh folder:plugins/pip
 antibody bundle robbyrussell/oh-my-zsh folder:plugins/tmux
 
 antibody bundle MichaelAquilina/zsh-you-should-use
@@ -41,3 +42,4 @@ export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
 
 alias mrn="MAVEN_OPTS='-Dspring.profiles.active=local-dev,disable-auth' mvn spring-boot:run"
 alias kgpg='k get pods | grep'
+alias kgpwg='k get pods -w | grep'
