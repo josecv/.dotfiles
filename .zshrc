@@ -30,6 +30,8 @@ zplug "plugins/tmux", from:oh-my-zsh
 zplug "MichaelAquilina/zsh-you-should-use"
 zplug "zsh-users/zsh-autosuggestions"
 
+zplug "$DOTFILES/fpath", from:local
+
 zplug "bhilburn/powerlevel9k", use:powerlevel9k.zsh-theme
 
 zplug "zsh-users/zsh-syntax-highlighting", defer:2
