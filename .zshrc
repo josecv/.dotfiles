@@ -7,30 +7,41 @@ POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context kubecontext custom_fast_git virtualen
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status root_indicator background_jobs todo time)
 POWERLEVEL9K_VCS_GIT_HOOKS=(vcs-detect-changes git-aheadbehind git-tagname)
 
-source <(antibody init)
+source ~/.zplug/init.zsh
+
+zplug 'zplug/zplug', hook-build:'zplug --self-manage'
 
 # Sadly Au uses a helm version too old for the oh-my-zsh plugin to work with it
-antibody bundle robbyrussell/oh-my-zsh
+zplug "robbyrussell/oh-my-zsh"
 DISABLE_AUTO_UPDATE=true
-ZSH="$(antibody home)/https-COLON--SLASH--SLASH-github.com-SLASH-robbyrussell-SLASH-oh-my-zsh"
 
-antibody bundle robbyrussell/oh-my-zsh folder:plugins/git
-antibody bundle robbyrussell/oh-my-zsh folder:plugins/osx
-antibody bundle robbyrussell/oh-my-zsh folder:plugins/aws
-antibody bundle robbyrussell/oh-my-zsh folder:plugins/brew
-antibody bundle robbyrussell/oh-my-zsh folder:plugins/docker
-antibody bundle robbyrussell/oh-my-zsh folder:plugins/github
-antibody bundle robbyrussell/oh-my-zsh folder:plugins/mvn
-antibody bundle robbyrussell/oh-my-zsh folder:plugins/kubectl
-antibody bundle robbyrussell/oh-my-zsh folder:plugins/python
-antibody bundle robbyrussell/oh-my-zsh folder:plugins/pip
-antibody bundle robbyrussell/oh-my-zsh folder:plugins/tmux
+zplug "plugins/git", from:oh-my-zsh
+zplug "plugins/osx", from:oh-my-zsh
+zplug "plugins/aws", from:oh-my-zsh
+zplug "plugins/brew", from:oh-my-zsh
+zplug "plugins/docker", from:oh-my-zsh
+zplug "plugins/github", from:oh-my-zsh
+zplug "plugins/mvn", from:oh-my-zsh
+zplug "plugins/kubectl", from:oh-my-zsh
+zplug "plugins/python", from:oh-my-zsh
+zplug "plugins/pip", from:oh-my-zsh
+zplug "plugins/tmux", from:oh-my-zsh
 
-antibody bundle MichaelAquilina/zsh-you-should-use
+zplug "MichaelAquilina/zsh-you-should-use"
 
-antibody bundle bhilburn/powerlevel9k
+zplug "bhilburn/powerlevel9k", use:powerlevel9k.zsh-theme
 
-antibody bundle zsh-users/zsh-syntax-highlighting
+zplug "zsh-users/zsh-syntax-highlighting", defer:2
+
+# Install zplug plugins if there are plugins that have not been installed
+if ! zplug check --verbose; then
+   printf "Install? [y/N]: "
+   if read -q; then
+       echo; zplug install
+   fi
+fi
+
+zplug load
 
 . $HOME/.private_zshrc
 . $DOTFILES/fun.zsh
