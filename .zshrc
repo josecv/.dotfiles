@@ -11,6 +11,9 @@ source <(antibody init)
 
 # Sadly Au uses a helm version too old for the oh-my-zsh plugin to work with it
 antibody bundle robbyrussell/oh-my-zsh
+DISABLE_AUTO_UPDATE=true
+ZSH="$(antibody home)/https-COLON--SLASH--SLASH-github.com-SLASH-robbyrussell-SLASH-oh-my-zsh"
+
 antibody bundle robbyrussell/oh-my-zsh folder:plugins/git
 antibody bundle robbyrussell/oh-my-zsh folder:plugins/osx
 antibody bundle robbyrussell/oh-my-zsh folder:plugins/aws
