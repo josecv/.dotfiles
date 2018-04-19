@@ -40,6 +40,9 @@ set softtabstop=4
 set shiftwidth=4
 set nowrap
 let mapleader=" "
+if has("gui_macvim")
+    set macmeta
+endif
 
 " Shortcuts
 nnoremap <LEADER>jd :JavaSearch -x declarations<CR>
