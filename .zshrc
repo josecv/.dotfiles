@@ -53,9 +53,6 @@ zplug load
 
 bindkey -v
 bindkey -M vicmd "^V" edit-command-line
-
-setopt noincappendhistory
-setopt nosharehistory
 bindkey '^ ' autosuggest-accept
 
 export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
@@ -63,6 +60,9 @@ export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
 export HISTFILE=~/.zsh_history
 export HISTSIZE=100000
 export SAVEHIST=100000
+#These two are used to prevent tmux panes from sharing history.
+setopt noincappendhistory
+setopt nosharehistory
 
 alias mrn="MAVEN_OPTS='-Dspring.profiles.active=local-dev,disable-auth' mvn spring-boot:run"
 alias kgpg='k get pods | grep'
