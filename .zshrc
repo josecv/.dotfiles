@@ -41,6 +41,10 @@ if ! zplug check --verbose; then
    fi
 fi
 
+if [ -f "$_zplug_lock" ]; then
+    rm "$_zplug_lock"
+fi
+
 zplug load
 
 . $HOME/.private_zshrc
@@ -53,6 +57,10 @@ setopt noincappendhistory
 setopt nosharehistory
 
 export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
+
+export HISTFILE=~/.zsh_history
+export HISTSIZE=100000
+export SAVEHIST=100000
 
 alias mrn="MAVEN_OPTS='-Dspring.profiles.active=local-dev,disable-auth' mvn spring-boot:run"
 alias kgpg='k get pods | grep'
