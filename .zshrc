@@ -12,7 +12,7 @@ source ~/.zplug/init.zsh
 zplug 'zplug/zplug', hook-build:'zplug --self-manage'
 
 # Sadly Au uses a helm version too old for the oh-my-zsh plugin to work with it
-zplug "robbyrussell/oh-my-zsh"
+zplug "robbyrussell/oh-my-zsh", use:oh-my-zsh.sh
 DISABLE_AUTO_UPDATE=true
 
 zplug "plugins/git", from:oh-my-zsh
@@ -28,6 +28,7 @@ zplug "plugins/pip", from:oh-my-zsh
 zplug "plugins/tmux", from:oh-my-zsh
 
 zplug "MichaelAquilina/zsh-you-should-use"
+zplug "zsh-users/zsh-autosuggestions"
 
 zplug "bhilburn/powerlevel9k", use:powerlevel9k.zsh-theme
 
@@ -55,6 +56,7 @@ bindkey -M vicmd "^V" edit-command-line
 
 setopt noincappendhistory
 setopt nosharehistory
+bindkey '^ ' autosuggest-accept
 
 export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
 
