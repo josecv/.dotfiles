@@ -29,6 +29,7 @@ zplug "plugins/tmux", from:oh-my-zsh
 
 zplug "MichaelAquilina/zsh-you-should-use"
 zplug "zsh-users/zsh-autosuggestions"
+zplug "rupa/z", use:z.sh
 
 zplug "$DOTFILES/fpath", from:local
 
@@ -69,3 +70,4 @@ setopt nosharehistory
 alias mrn="MAVEN_OPTS='-Dspring.profiles.active=local-dev,disable-auth' mvn spring-boot:run"
 alias kgpg='k get pods | grep'
 alias kgpwg='k get pods -w | grep'
+alias gap="git add -p"
