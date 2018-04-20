@@ -6,7 +6,6 @@ call vundle#begin()
 Plugin 'VundleVim/Vundle.vim'
 Plugin 'flazz/vim-colorschemes'
 Plugin 'scrooloose/nerdtree'
-Plugin 'kien/ctrlp.vim'
 Plugin 'valloric/youcompleteme'
 Plugin 'tpope/vim-fugitive'
 Plugin 'tpope/vim-rhubarb'
@@ -24,6 +23,9 @@ Plugin 'vito-c/jq.vim'
 Plugin 'easymotion/vim-easymotion'
 Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
+
+set rtp+=/usr/local/Cellar/fzf/0.17.3
+Plugin 'junegunn/fzf.vim'
 
 call vundle#end()
 filetype plugin indent on
@@ -52,6 +54,7 @@ nnoremap <LEADER>jf :%JavaFormat<CR>
 nnoremap <LEADER>t :VimuxRunCommand ""<LEFT>
 nnoremap <LEADER>T :VimuxCloseRunner<CR>
 nnoremap <LEADER>mr :VimuxRunCommand "mrn"<CR>
+nnoremap <C-p> :Files<CR>
 
 " Easymotion overwin motions
 map  <LEADER>f<LEADER> <Plug>(easymotion-bd-f)
