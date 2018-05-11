@@ -1,6 +1,7 @@
 DOTFILES=$HOME/.dotfiles
 
 # Powerlevel9K config
+POWERLEVEL9K_MODE='nerdfont-complete'
 POWERLEVEL9K_CUSTOM_FAST_GIT="jose::fast_git"
 POWERLEVEL9K_CUSTOM_FAST_GIT_BACKGROUND="green"
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context kubecontext custom_fast_git virtualenv newline dir)
@@ -26,6 +27,7 @@ zplug "plugins/kubectl", from:oh-my-zsh
 zplug "plugins/python", from:oh-my-zsh
 zplug "plugins/pip", from:oh-my-zsh
 zplug "plugins/tmux", from:oh-my-zsh
+zplug "plugins/kops", from:oh-my-zsh
 
 zplug "MichaelAquilina/zsh-you-should-use"
 zplug "zsh-users/zsh-autosuggestions"
@@ -71,3 +73,4 @@ alias mrn="MAVEN_OPTS='-Dspring.profiles.active=local-dev,disable-auth' mvn spri
 alias kgpg='k get pods | grep'
 alias kgpwg='k get pods -w | grep'
 alias gap="git add -p"
+alias norg='gron --ungron'

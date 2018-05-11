@@ -23,6 +23,8 @@ Plugin 'vito-c/jq.vim'
 Plugin 'easymotion/vim-easymotion'
 Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
+Plugin 'vim-scripts/bats.vim'
+Plugin 'w0rp/ale'
 
 set rtp+=/usr/local/Cellar/fzf/0.17.3
 Plugin 'junegunn/fzf.vim'
@@ -76,7 +78,13 @@ let g:UltiSnipsExpandTrigger="<C-e>"
 let g:ycm_key_list_stop_completion = ['<C-y>', '<ENTER>']
 let g:ackprg = 'ag --vimgrep --smart-case'
 let g:test#java#maventest#file_pattern = '\v^([Tt]est.*|.*[Tt]est(s|Case)?|.*IT)\.java$'
+let g:ale_linters = {
+            \ 'java': [],
+\}
 
 " Eclim config
 let g:EclimJavaSearchSingleResult = 'vsplit'
 let g:EclimCompletionMethod = 'omnifunc'
+
+" FileTypes
+autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
