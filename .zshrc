@@ -1,6 +1,7 @@
 DOTFILES=$HOME/.dotfiles
 
 # Powerlevel9K config
+PATH="$PATH:$HOME/.local/bin"
 POWERLEVEL9K_MODE='nerdfont-complete'
 POWERLEVEL9K_CUSTOM_FAST_GIT="jose::fast_git"
 POWERLEVEL9K_CUSTOM_FAST_GIT_BACKGROUND="green"
@@ -18,7 +19,7 @@ DISABLE_AUTO_UPDATE=true
 
 zplug "plugins/git", from:oh-my-zsh
 zplug "plugins/osx", from:oh-my-zsh
-zplug "plugins/aws", from:oh-my-zsh
+#zplug "plugins/aws", from:oh-my-zsh
 zplug "plugins/brew", from:oh-my-zsh
 zplug "plugins/docker", from:oh-my-zsh
 zplug "plugins/github", from:oh-my-zsh
@@ -73,4 +74,10 @@ alias mrn="MAVEN_OPTS='-Dspring.profiles.active=local-dev,disable-auth' mvn spri
 alias kgpg='k get pods | grep'
 alias kgpwg='k get pods -w | grep'
 alias gap="git add -p"
+alias gpf='git push -f'
 alias norg='gron --ungron'
+alias kc='k'
+
+# for some reason this needs to be the last line here, or k8s autocompletion
+# breaks down
+source /usr/local/share/zsh/site-functions/_kubectl
