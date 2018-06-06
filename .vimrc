@@ -15,7 +15,6 @@ Plugin 'janko-m/vim-test'
 Plugin 'nvie/vim-flake8'
 Plugin 'benmills/vimux'
 Plugin 'scrooloose/nerdcommenter'
-Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'mileszs/ack.vim'
@@ -25,6 +24,12 @@ Plugin 'godlygeek/tabular'
 Plugin 'plasticboy/vim-markdown'
 Plugin 'vim-scripts/bats.vim'
 Plugin 'w0rp/ale'
+Plugin 'towolf/vim-helm'
+Plugin 'andrewstuart/vim-kubernetes'
+Plugin 'fatih/vim-go'
+Plugin 'vim-scripts/Greplace.vim'
+
+Plugin 'SirVer/ultisnips'
 
 set rtp+=/usr/local/Cellar/fzf/0.17.3
 Plugin 'junegunn/fzf.vim'
@@ -80,6 +85,8 @@ let g:ackprg = 'ag --vimgrep --smart-case'
 let g:test#java#maventest#file_pattern = '\v^([Tt]est.*|.*[Tt]est(s|Case)?|.*IT)\.java$'
 let g:ale_linters = {
             \ 'java': [],
+            \ 'haskell': ['hdevtools'],
+            \ 'python': ['pylint'],
 \}
 
 " Eclim config
