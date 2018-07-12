@@ -61,6 +61,7 @@ nnoremap <LEADER>jf :%JavaFormat<CR>
 nnoremap <LEADER>t :VimuxRunCommand ""<LEFT>
 nnoremap <LEADER>T :VimuxCloseRunner<CR>
 nnoremap <LEADER>mr :VimuxRunCommand "mrn"<CR>
+nnoremap <LEADER>f :ALEFix <CR>
 nnoremap <C-p> :Files<CR>
 
 " Easymotion overwin motions
@@ -86,12 +87,21 @@ let g:test#java#maventest#file_pattern = '\v^([Tt]est.*|.*[Tt]est(s|Case)?|.*IT)
 let g:ale_linters = {
             \ 'java': [],
             \ 'haskell': ['hdevtools'],
-            \ 'python': ['pylint'],
+            \ 'python': ['flake8'],
 \}
+let g:ale_fixers = {
+\   'python': [
+\       'yapf',
+\   ],
+\}
+let g:ale_virtualenv_dir_names = ['.venv']
 
 " Eclim config
 let g:EclimJavaSearchSingleResult = 'vsplit'
 let g:EclimCompletionMethod = 'omnifunc'
 
+highlight ColorColumn ctermbg=blue
+
 " FileTypes
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
+autocmd FileType python setlocal colorcolumn=79

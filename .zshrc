@@ -36,7 +36,7 @@ zplug "rupa/z", use:z.sh
 
 zplug "$DOTFILES/fpath", from:local
 
-zplug "bhilburn/powerlevel9k", use:powerlevel9k.zsh-theme
+zplug "bhilburn/powerlevel9k", use:powerlevel9k.zsh-theme, at:v0.6.4
 
 zplug "zsh-users/zsh-syntax-highlighting", defer:2
 
@@ -77,6 +77,7 @@ alias gap="git add -p"
 alias gpf='git push -f'
 alias norg='gron --ungron'
 alias kc='k'
+alias pbld='python setup.py build && python setup.py install'
 
 # for some reason this needs to be the last line here, or k8s autocompletion
 # breaks down
