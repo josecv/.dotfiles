@@ -1,3 +1,6 @@
+if has('python3')
+  silent! python3 1
+endif
 set nocompatible
 filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -28,6 +31,9 @@ Plugin 'towolf/vim-helm'
 Plugin 'andrewstuart/vim-kubernetes'
 Plugin 'fatih/vim-go'
 Plugin 'vim-scripts/Greplace.vim'
+Plugin 'c9s/helper.vim'
+Plugin 'c9s/treemenu.vim'
+Plugin 'c9s/vikube.vim'
 
 Plugin 'SirVer/ultisnips'
 
@@ -79,6 +85,7 @@ cnoreabbrev Md Mvn docker
 cnoreabbrev mcf MultipleCursorsFind
 
 " Plugin configs
+let g:vim_markdown_folding_disabled = 1
 let test#strategy = "vimux"
 let g:UltiSnipsExpandTrigger="<C-e>"
 let g:ycm_key_list_stop_completion = ['<C-y>', '<ENTER>']
@@ -91,10 +98,12 @@ let g:ale_linters = {
 \}
 let g:ale_fixers = {
 \   'python': [
-\       'yapf',
+\       'yapf', 'isort'
 \   ],
 \}
 let g:ale_virtualenv_dir_names = ['.venv']
+let g:vikube_use_current_namespace = 1
+let g:ycm_python_binary_path = 'python'
 
 " Eclim config
 let g:EclimJavaSearchSingleResult = 'vsplit'

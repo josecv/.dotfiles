@@ -8,6 +8,7 @@ POWERLEVEL9K_CUSTOM_FAST_GIT_BACKGROUND="green"
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context kubecontext custom_fast_git virtualenv newline dir)
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status root_indicator background_jobs todo time)
 POWERLEVEL9K_VCS_GIT_HOOKS=(vcs-detect-changes git-aheadbehind git-tagname)
+POWERLEVEL9K_SHORTEN_DIR_LENGTH=4
 
 source ~/.zplug/init.zsh
 
