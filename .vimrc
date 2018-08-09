@@ -88,7 +88,6 @@ cnoreabbrev mcf MultipleCursorsFind
 let g:vim_markdown_folding_disabled = 1
 let test#strategy = "vimux"
 let g:UltiSnipsExpandTrigger="<C-e>"
-let g:ycm_key_list_stop_completion = ['<C-y>', '<ENTER>']
 let g:ackprg = 'ag --vimgrep --smart-case'
 let g:test#java#maventest#file_pattern = '\v^([Tt]est.*|.*[Tt]est(s|Case)?|.*IT)\.java$'
 let g:ale_linters = {
@@ -103,7 +102,12 @@ let g:ale_fixers = {
 \}
 let g:ale_virtualenv_dir_names = ['.venv']
 let g:vikube_use_current_namespace = 1
+let g:jedi#show_call_signatures = "0"
+
+" YCM config
+let g:ycm_key_list_stop_completion = ['<C-y>', '<ENTER>']
 let g:ycm_python_binary_path = 'python'
+let g:ycm_max_num_candidates = 25
 
 " Eclim config
 let g:EclimJavaSearchSingleResult = 'vsplit'
@@ -114,3 +118,4 @@ highlight ColorColumn ctermbg=blue
 " FileTypes
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 autocmd FileType python setlocal colorcolumn=79
+autocmd FileType python EclimDisable
