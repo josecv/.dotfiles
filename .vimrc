@@ -10,9 +10,19 @@ endif
 
 call plug#begin('~/.vim/plugged')
 
+" Auto completion plugins
+Plug 'valloric/youcompleteme'
+
+" Snippets
+Plug 'SirVer/ultisnips'
+
+" Fzf
+Plug '/usr/local/opt/fzf'
+Plug 'junegunn/fzf.vim'
+
+" Other plugins
 Plug 'flazz/vim-colorschemes'
 Plug 'scrooloose/nerdtree'
-Plug 'valloric/youcompleteme'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
 Plug 'bling/vim-airline'
@@ -38,11 +48,6 @@ Plug 'c9s/helper.vim'
 Plug 'c9s/treemenu.vim'
 Plug 'c9s/vikube.vim'
 Plug 'mustache/vim-mustache-handlebars'
-
-Plug 'SirVer/ultisnips'
-
-Plug '/usr/local/opt/fzf'
-Plug 'junegunn/fzf.vim'
 
 call plug#end()
 
