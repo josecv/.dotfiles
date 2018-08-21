@@ -38,6 +38,7 @@ Plug 'vim-scripts/Greplace.vim'
 Plug 'c9s/helper.vim'
 Plug 'c9s/treemenu.vim'
 Plug 'c9s/vikube.vim'
+Plug 'mustache/vim-mustache-handlebars'
 
 Plug 'SirVer/ultisnips'
 
@@ -122,5 +123,6 @@ highlight ColorColumn ctermbg=blue
 
 " FileTypes
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
+autocmd FileType hbs setlocal ts=2 sts=2 sw=2 expandtab
 autocmd FileType python setlocal colorcolumn=79
 autocmd FileType python EclimDisable

@@ -79,6 +79,7 @@ alias gpf='git push -f'
 alias norg='gron --ungron'
 alias kc='k'
 alias pbld='python setup.py build && python setup.py install'
+alias kgpa='k get pods -a'
 
 # for some reason this needs to be the last line here, or k8s autocompletion
 # breaks down
