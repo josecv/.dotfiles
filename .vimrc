@@ -1,3 +1,6 @@
+" python3 config
+let g:python3_host_prog = '/Users/jose/vim-py/bin/python3.7'
+set pyxversion=3
 if has('python3')
   silent! python3 1
 endif
@@ -11,10 +14,13 @@ endif
 call plug#begin('~/.vim/plugged')
 
 " Auto completion plugins
-Plug 'valloric/youcompleteme'
-
-" Snippets
-Plug 'SirVer/ultisnips'
+Plug 'Shougo/deoplete.nvim'
+Plug 'roxma/nvim-yarp'
+Plug 'roxma/vim-hug-neovim-rpc'
+Plug 'autozimu/LanguageClient-neovim', {
+    \ 'branch': 'next',
+    \ 'do': 'bash install.sh',
+    \ }
 
 " Fzf
 Plug '/usr/local/opt/fzf'
@@ -115,10 +121,19 @@ let g:ale_virtualenv_dir_names = ['.venv']
 let g:vikube_use_current_namespace = 1
 let g:jedi#show_call_signatures = "0"
 
-" YCM config
-let g:ycm_key_list_stop_completion = ['<C-y>', '<ENTER>']
-let g:ycm_python_binary_path = 'python'
-let g:ycm_max_num_candidates = 25
+" Deoplete
+let g:deoplete#enable_at_startup = 1
+inoremap <silent><expr> <TAB>
+    \ pumvisible() ? "\<C-n>" :
+    \ <SID>check_back_space() ? "\<TAB>" :
+    \ deoplete#mappings#manual_complete()
+function! s:check_back_space() abort "{{{
+    let col = col('.') - 1
+    return !col || getline('.')[col - 1]  =~ '\s'
+endfunction"}}}
+let g:LanguageClient_serverCommands = {
+    \ 'python': ['~/vim-py/bin/pyls'],
+    \ }
 
 " Eclim config
 let g:EclimJavaSearchSingleResult = 'vsplit'
