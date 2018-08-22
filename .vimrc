@@ -17,10 +17,8 @@ call plug#begin('~/.vim/plugged')
 Plug 'Shougo/deoplete.nvim'
 Plug 'roxma/nvim-yarp'
 Plug 'roxma/vim-hug-neovim-rpc'
-Plug 'autozimu/LanguageClient-neovim', {
-    \ 'branch': 'next',
-    \ 'do': 'bash install.sh',
-    \ }
+Plug 'zchee/deoplete-jedi'
+Plug 'thalesmello/webcomplete.vim'
 
 " Fzf
 Plug '/usr/local/opt/fzf'
@@ -131,9 +129,6 @@ function! s:check_back_space() abort "{{{
     let col = col('.') - 1
     return !col || getline('.')[col - 1]  =~ '\s'
 endfunction"}}}
-let g:LanguageClient_serverCommands = {
-    \ 'python': ['~/vim-py/bin/pyls'],
-    \ }
 
 " Eclim config
 let g:EclimJavaSearchSingleResult = 'vsplit'
