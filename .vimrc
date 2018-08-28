@@ -22,12 +22,6 @@ Plug 'thalesmello/webcomplete.vim'
 Plug 'zchee/deoplete-go', { 'do': 'make'}
 Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
 
-" Lang client
-Plug 'autozimu/LanguageClient-neovim', {
-    \ 'branch': 'next',
-    \ 'do': 'bash install.sh',
-    \ }
-
 " Fzf
 Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
@@ -137,14 +131,6 @@ function! s:check_back_space() abort "{{{
     let col = col('.') - 1
     return !col || getline('.')[col - 1]  =~ '\s'
 endfunction"}}}
-autocmd FileType python call deoplete#custom#option('ignore_sources', {'_': ['LanguageClient']})
-
-" Lang client config
-let g:LanguageClient_serverCommands = {
-    \ 'python': ['/Users/jose/vim-py/bin/pyls'],
-    \ }
-autocmd FileType python let g:LanguageClient_diagnosticsEnable=0
-nnoremap <LEADER>r :call LanguageClient_contextMenu()<CR>
 
 " Eclim config
 let g:EclimJavaSearchSingleResult = 'vsplit'
