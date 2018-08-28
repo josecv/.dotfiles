@@ -19,6 +19,8 @@ Plug 'roxma/nvim-yarp'
 Plug 'roxma/vim-hug-neovim-rpc'
 Plug 'zchee/deoplete-jedi'
 Plug 'thalesmello/webcomplete.vim'
+Plug 'zchee/deoplete-go', { 'do': 'make'}
+Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
 
 " Fzf
 Plug '/usr/local/opt/fzf'
