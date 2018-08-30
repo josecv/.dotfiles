@@ -6,7 +6,6 @@ endif
 if has('python3')
   silent! python3 1
 endif
-
 if empty(glob('~/.vim/autoload/plug.vim'))
   silent !curl -fLo ~/.vim/autoload/plug.vim --create-dirs
     \ https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
@@ -138,6 +137,7 @@ function! s:check_back_space() abort "{{{
     let col = col('.') - 1
     return !col || getline('.')[col - 1]  =~ '\s'
 endfunction"}}}
+call deoplete#custom#option('max_list', 35)
 
 " Eclim config
 let g:EclimJavaSearchSingleResult = 'vsplit'
