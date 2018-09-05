@@ -37,10 +37,8 @@ Plug 'tpope/vim-rhubarb'
 Plug 'bling/vim-airline'
 Plug 'sjl/gundo.vim'
 Plug 'janko-m/vim-test'
-Plug 'nvie/vim-flake8'
 Plug 'benmills/vimux'
 Plug 'scrooloose/nerdcommenter'
-Plug 'honza/vim-snippets'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'mileszs/ack.vim'
 Plug 'vito-c/jq.vim'
@@ -126,6 +124,7 @@ let g:ale_fixers = {
 let g:ale_virtualenv_dir_names = ['.venv']
 let g:vikube_use_current_namespace = 1
 let g:jedi#show_call_signatures = "0"
+let g:airline_highlighting_cache = 1
 
 " Deoplete
 let g:deoplete#enable_at_startup = 1
