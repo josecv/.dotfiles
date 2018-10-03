@@ -6,7 +6,7 @@ POWERLEVEL9K_MODE='nerdfont-complete'
 POWERLEVEL9K_CUSTOM_FAST_GIT="jose::fast_git"
 POWERLEVEL9K_CUSTOM_FAST_GIT_BACKGROUND="green"
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context kubecontext custom_fast_git virtualenv newline dir)
-POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status root_indicator background_jobs todo time)
+POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status root_indicator background_jobs time)
 POWERLEVEL9K_VCS_GIT_HOOKS=(vcs-detect-changes git-aheadbehind git-tagname)
 POWERLEVEL9K_SHORTEN_DIR_LENGTH=4
 
@@ -33,6 +33,7 @@ zplug "plugins/python", from:oh-my-zsh
 zplug "plugins/pip", from:oh-my-zsh
 zplug "plugins/tmux", from:oh-my-zsh
 zplug "plugins/kops", from:oh-my-zsh
+zplug "plugins/helm", from:oh-my-zsh
 
 zplug "MichaelAquilina/zsh-you-should-use"
 zplug "zsh-users/zsh-autosuggestions"
@@ -48,6 +49,8 @@ else
 fi
 
 zplug "zsh-users/zsh-syntax-highlighting", defer:2
+
+. ~/.private_zsh_plugins
 
 # Install zplug plugins if there are plugins that have not been installed
 if ! zplug check --verbose; then
@@ -92,9 +95,14 @@ alias norg='gron --ungron'
 alias kc='k'
 alias pbld='python setup.py build && python setup.py install'
 alias kgpa='k get pods -a'
+unalias kcp
 
-# for some reason this needs to be the last line here, or k8s autocompletion
-# breaks down
+function kcmk {
+    _switch_context minikube $1
+}
+
 if [[ -f /usr/local/share/zsh/site-functions/_kubectl ]]; then
+    # for some reason this needs to be the last line here, or k8s autocompletion
+    # breaks down
     source /usr/local/share/zsh/site-functions/_kubectl
 fi

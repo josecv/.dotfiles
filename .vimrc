@@ -137,6 +137,8 @@ function! s:check_back_space() abort "{{{
     return !col || getline('.')[col - 1]  =~ '\s'
 endfunction"}}}
 call deoplete#custom#option('max_list', 35)
+let g:deoplete#omni#input_patterns = {}
+let g:deoplete#omni#input_patterns.java = '[^. *\t]\.\w*'
 
 " Eclim config
 let g:EclimJavaSearchSingleResult = 'vsplit'
