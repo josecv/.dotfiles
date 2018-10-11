@@ -18,10 +18,13 @@ zplug 'zplug/zplug', hook-build:'zplug --self-manage'
 zplug "robbyrussell/oh-my-zsh", use:oh-my-zsh.sh
 DISABLE_AUTO_UPDATE=true
 
+if [[ $(uname) == 'Darwin' ]]; then
+    zplug "plugins/osx", from:oh-my-zsh
+    zplug "plugins/brew", from:oh-my-zsh
+fi
+
 zplug "plugins/git", from:oh-my-zsh
-zplug "plugins/osx", from:oh-my-zsh
 #zplug "plugins/aws", from:oh-my-zsh
-zplug "plugins/brew", from:oh-my-zsh
 zplug "plugins/docker", from:oh-my-zsh
 zplug "plugins/github", from:oh-my-zsh
 zplug "plugins/mvn", from:oh-my-zsh
@@ -37,7 +40,12 @@ zplug "rupa/z", use:z.sh
 
 zplug "$DOTFILES/fpath", from:local
 
-zplug "bhilburn/powerlevel9k", use:powerlevel9k.zsh-theme, at:v0.6.4
+if [[ $(uname -m) == 'x86_64' ]]; then
+    zplug "bhilburn/powerlevel9k", use:powerlevel9k.zsh-theme, at:v0.6.4
+else
+    zplug mafredri/zsh-async, from:github
+    zplug sindresorhus/pure, use:pure.zsh, from:github, as:theme
+fi
 
 zplug "zsh-users/zsh-syntax-highlighting", defer:2
 
@@ -55,14 +63,18 @@ fi
 
 zplug load
 
-. $HOME/.private_zshrc
+if [[ -f "$HOME/.private_zshrc" ]]; then
+    . $HOME/.private_zshrc
+fi
 . $DOTFILES/fun.zsh
 
 bindkey -v
 bindkey -M vicmd "^V" edit-command-line
 bindkey '^ ' autosuggest-accept
 
-export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
+if [[ -f /usr/libexec/java_home ]]; then
+    export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
+fi
 
 export HISTFILE=~/.zsh_history
 export HISTSIZE=100000
@@ -83,4 +95,6 @@ alias kgpa='k get pods -a'
 
 # for some reason this needs to be the last line here, or k8s autocompletion
 # breaks down
-source /usr/local/share/zsh/site-functions/_kubectl
+if [[ -f /usr/local/share/zsh/site-functions/_kubectl ]]; then
+    source /usr/local/share/zsh/site-functions/_kubectl
+fi

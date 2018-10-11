@@ -1,6 +1,8 @@
 " python3 config
 let g:python3_host_prog = '/Users/jose/vim-py/bin/python3.7'
-set pyxversion=3
+if has('python')
+    set pyxversion=3
+endif
 if has('python3')
   silent! python3 1
 endif
@@ -14,13 +16,15 @@ endif
 call plug#begin('~/.vim/plugged')
 
 " Auto completion plugins
-Plug 'Shougo/deoplete.nvim'
-Plug 'roxma/nvim-yarp'
-Plug 'roxma/vim-hug-neovim-rpc'
-Plug 'zchee/deoplete-jedi'
-Plug 'thalesmello/webcomplete.vim'
-Plug 'zchee/deoplete-go', { 'do': 'make'}
-Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
+if v:version >= 800
+    Plug 'Shougo/deoplete.nvim'
+    Plug 'roxma/nvim-yarp'
+    Plug 'roxma/vim-hug-neovim-rpc'
+    Plug 'zchee/deoplete-jedi'
+    Plug 'thalesmello/webcomplete.vim'
+    Plug 'zchee/deoplete-go', { 'do': 'make'}
+    Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
+endif
 
 " Fzf
 Plug '/usr/local/opt/fzf'
@@ -45,15 +49,18 @@ Plug 'easymotion/vim-easymotion'
 Plug 'godlygeek/tabular'
 Plug 'plasticboy/vim-markdown'
 Plug 'vim-scripts/bats.vim'
-Plug 'w0rp/ale'
 Plug 'towolf/vim-helm'
 Plug 'andrewstuart/vim-kubernetes'
-Plug 'fatih/vim-go'
 Plug 'vim-scripts/Greplace.vim'
 Plug 'c9s/helper.vim'
 Plug 'c9s/treemenu.vim'
 Plug 'c9s/vikube.vim'
 Plug 'mustache/vim-mustache-handlebars'
+
+if v:version >= 800
+    Plug 'fatih/vim-go'
+    Plug 'w0rp/ale'
+endif
 
 call plug#end()
 
