@@ -41,7 +41,7 @@ zplug "rupa/z", use:z.sh
 
 zplug "$DOTFILES/fpath", from:local
 
-if [[ $(uname -m) == 'x86_64' ]]; then
+if [[ $(uname -m) == 'x86_64' && -z "$DISABLE_PL9K" ]]; then
     zplug "bhilburn/powerlevel9k", use:powerlevel9k.zsh-theme, at:v0.6.4
 else
     zplug mafredri/zsh-async, from:github
@@ -50,7 +50,9 @@ fi
 
 zplug "zsh-users/zsh-syntax-highlighting", defer:2
 
-. ~/.private_zsh_plugins
+if [[ -f $HOME/.private_zsh_plugins ]]; then
+    . $HOME/.private_zsh_plugins
+fi
 
 # Install zplug plugins if there are plugins that have not been installed
 if ! zplug check --verbose; then

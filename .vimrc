@@ -150,4 +150,7 @@ highlight ColorColumn ctermbg=blue
 autocmd FileType yaml setlocal ts=2 sts=2 sw=2 expandtab
 autocmd FileType hbs setlocal ts=2 sts=2 sw=2 expandtab
 autocmd FileType python setlocal colorcolumn=79
-autocmd FileType python EclimDisable
+
+if exists(":EclimDisable")
+    autocmd FileType python EclimDisable
+endif
