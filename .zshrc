@@ -35,6 +35,8 @@ zplug "plugins/tmux", from:oh-my-zsh
 zplug "plugins/kops", from:oh-my-zsh
 zplug "plugins/helm", from:oh-my-zsh
 
+zplug "aliyun/aliyun-cli", from:gh-r, as:command, rename-to:aliyun
+
 zplug "MichaelAquilina/zsh-you-should-use"
 zplug "zsh-users/zsh-autosuggestions"
 zplug "rupa/z", use:z.sh
