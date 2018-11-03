@@ -1,5 +1,5 @@
 " python3 config
-let g:python3_host_prog = '/Users/jose/vim-py/bin/python3.7'
+let g:python3_host_prog = $HOME.'/vim-py/bin/python3'
 if has('python')
     set pyxversion=3
 endif

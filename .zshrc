@@ -14,7 +14,6 @@ source ~/.zplug/init.zsh
 
 zplug 'zplug/zplug', hook-build:'zplug --self-manage'
 
-# Sadly Au uses a helm version too old for the oh-my-zsh plugin to work with it
 zplug "robbyrussell/oh-my-zsh", use:oh-my-zsh.sh
 DISABLE_AUTO_UPDATE=true
 
@@ -35,11 +34,29 @@ zplug "plugins/tmux", from:oh-my-zsh
 zplug "plugins/kops", from:oh-my-zsh
 zplug "plugins/helm", from:oh-my-zsh
 
-zplug "aliyun/aliyun-cli", from:gh-r, as:command, rename-to:aliyun
+if [[ "$DISABLE_ALI" != 'true' ]]; then
+    zplug "aliyun/aliyun-cli", from:gh-r, as:command, rename-to:aliyun
+fi
 
 zplug "MichaelAquilina/zsh-you-should-use"
 zplug "zsh-users/zsh-autosuggestions"
 zplug "rupa/z", use:z.sh
+
+if ! [[ -f /usr/local/bin/yq ]]; then
+    zplug "mikefarah/yq", as:command, from:gh-r, rename-to:yq
+fi
+if ! [[ -f /usr/local/bin/sterm ]]; then
+    zplug "wercker/stern", as:command, from:gh-r, rename-to:stern
+fi
+if ! [[ -f /usr/local/bin/fd ]]; then
+    zplug "sharkdp/fd", as:command, from:gh-r, rename-to:fd
+fi
+if ! [[ -f /usr/local/bin/bat ]]; then
+    zplug "sharkdp/bat", as:command, from:gh-r, rename-to:bat, use:"*x86_64*linux-gnu*"
+fi
+if ! [[ -f /usr/local/bin/fzf ]]; then
+    zplug "junegunn/fzf-bin", from:gh-r, as:command, rename-to:fzf, use:"*linux_amd64*"
+fi
 
 zplug "$DOTFILES/fpath", from:local
 
@@ -89,6 +106,8 @@ export SAVEHIST=100000
 #These two are used to prevent tmux panes from sharing history.
 setopt noincappendhistory
 setopt nosharehistory
+export EDITOR=vim
+export VISUAL=vim
 
 alias mrn="MAVEN_OPTS='-Dspring.profiles.active=local-dev,disable-auth' mvn spring-boot:run"
 alias kgpg='k get pods | grep'
@@ -104,6 +123,14 @@ unalias kcp
 function kcmk {
     _switch_context minikube $1
 }
+
+if ! which pbpaste 2>&1 > /dev/null; then
+    alias pbpaste='xclip -selection clipboard -o'
+fi
+
+if ! which pbcopy 2>&1 > /dev/null; then
+    alias pbcopy='xclip -selection clipboard'
+fi
 
 if [[ -f /usr/local/share/zsh/site-functions/_kubectl ]]; then
     # for some reason this needs to be the last line here, or k8s autocompletion

@@ -1,0 +1,4 @@
+if [[ ! -f /usr/local/share/zsh/site-functions/_kubectl ]]; then
+    # If we don't go in here, the .zshrc will source the _kubectl file for us
+    source <$(kubectl completion zsh)
+fi
