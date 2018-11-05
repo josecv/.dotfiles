@@ -45,7 +45,7 @@ zplug "rupa/z", use:z.sh
 if ! [[ -f /usr/local/bin/yq ]]; then
     zplug "mikefarah/yq", as:command, from:gh-r, rename-to:yq
 fi
-if ! [[ -f /usr/local/bin/sterm ]]; then
+if ! [[ -f /usr/local/bin/stern ]]; then
     zplug "wercker/stern", as:command, from:gh-r, rename-to:stern
 fi
 if ! [[ -f /usr/local/bin/fd ]]; then
