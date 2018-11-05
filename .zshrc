@@ -34,14 +34,15 @@ zplug "plugins/tmux", from:oh-my-zsh
 zplug "plugins/kops", from:oh-my-zsh
 zplug "plugins/helm", from:oh-my-zsh
 
+zplug "MichaelAquilina/zsh-you-should-use"
+zplug "zsh-users/zsh-autosuggestions"
+
+zplug "chubin/cheat.sh", as:command, rename-to:cht.sh, use:share/cht.sh.txt
+zplug "rupa/z", use:z.sh
+
 if [[ "$DISABLE_ALI" != 'true' ]]; then
     zplug "aliyun/aliyun-cli", from:gh-r, as:command, rename-to:aliyun
 fi
-
-zplug "MichaelAquilina/zsh-you-should-use"
-zplug "zsh-users/zsh-autosuggestions"
-zplug "rupa/z", use:z.sh
-
 if ! [[ -f /usr/local/bin/yq ]]; then
     zplug "mikefarah/yq", as:command, from:gh-r, rename-to:yq
 fi
