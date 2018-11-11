@@ -119,6 +119,7 @@ alias norg='gron --ungron'
 alias kc='k'
 alias pbld='python setup.py build && python setup.py install'
 alias kgpa='k get pods -a'
+alias glr='git pull -r'
 unalias kcp
 
 function kcmk {
