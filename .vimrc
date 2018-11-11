@@ -75,6 +75,7 @@ set softtabstop=4
 set shiftwidth=4
 set nowrap
 let mapleader=" "
+set splitright
 if has("gui_macvim")
     set macmeta
 endif
@@ -154,3 +155,6 @@ autocmd FileType python setlocal colorcolumn=79
 if exists(":EclimDisable")
     autocmd FileType python EclimDisable
 endif
+
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 0 && !exists("s:std_in") | NERDTree | endif
