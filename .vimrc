@@ -30,7 +30,7 @@ Plug '/usr/local/opt/fzf'
 Plug 'junegunn/fzf.vim'
 
 " Other plugins
-Plug 'flazz/vim-colorschemes'
+Plug 'morhetz/gruvbox'
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
@@ -66,7 +66,7 @@ let python_highlight_all=1
 syntax on
 
 set t_Co=256
-colorscheme zenburn
+colorscheme gruvbox
 set nu
 set hlsearch
 set expandtab
