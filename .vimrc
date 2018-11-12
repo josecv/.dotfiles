@@ -31,6 +31,7 @@ Plug 'junegunn/fzf.vim'
 
 " Other plugins
 Plug 'morhetz/gruvbox'
+Plug 'junegunn/seoul256.vim'
 Plug 'scrooloose/nerdtree'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-rhubarb'
