@@ -26,7 +26,8 @@ if v:version >= 800
 endif
 
 " Fzf
-Plug '/usr/local/opt/fzf'
+let fzf_path=$BREW_PREFIX."/opt/fzf"
+Plug fzf_path
 Plug 'junegunn/fzf.vim'
 
 " Other plugins

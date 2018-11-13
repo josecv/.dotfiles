@@ -10,6 +10,21 @@ POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status root_indicator background_jobs time)
 POWERLEVEL9K_VCS_GIT_HOOKS=(vcs-detect-changes git-aheadbehind git-tagname)
 POWERLEVEL9K_SHORTEN_DIR_LENGTH=4
 
+BREW_PREFIX=""
+if [[ $(uname) == 'Darwin' ]]; then
+    BREW_PREFIX='/usr/local'
+elif [[ $(uname) == 'Linux' ]] && [[ -d '/home/linuxbrew/.linuxbrew' ]]; then
+    BREW_PREFIX='/home/linuxbrew/.linuxbrew'
+fi
+export BREW_PREFIX
+
+function _has_brew() {
+    if [[ -z "$BREW_PREFIX" ]]; then
+        return 1
+    fi
+    [[ -f "$BREW_PREFIX/bin/$1" ]]
+}
+
 source ~/.zplug/init.zsh
 
 zplug 'zplug/zplug', hook-build:'zplug --self-manage'
@@ -43,20 +58,24 @@ zplug "rupa/z", use:z.sh
 if [[ "$DISABLE_ALI" != 'true' ]]; then
     zplug "aliyun/aliyun-cli", from:gh-r, as:command, rename-to:aliyun
 fi
-if ! [[ -f /usr/local/bin/yq ]]; then
+
+if ! _has_brew yq; then
     zplug "mikefarah/yq", as:command, from:gh-r, rename-to:yq
 fi
-if ! [[ -f /usr/local/bin/stern ]]; then
+if ! _has_brew stern; then
     zplug "wercker/stern", as:command, from:gh-r, rename-to:stern
 fi
-if ! [[ -f /usr/local/bin/fd ]]; then
+if ! _has_brew fd; then
     zplug "sharkdp/fd", as:command, from:gh-r, rename-to:fd
 fi
-if ! [[ -f /usr/local/bin/bat ]]; then
+if ! _has_brew bat; then
     zplug "sharkdp/bat", as:command, from:gh-r, rename-to:bat, use:"*x86_64*linux-gnu*"
 fi
-if ! [[ -f /usr/local/bin/fzf ]]; then
+if ! _has_brew fzf; then
     zplug "junegunn/fzf-bin", from:gh-r, as:command, rename-to:fzf, use:"*linux_amd64*"
+fi
+if ! _has_brew hub; then
+    zplug "github/hub", from:gh-r, as:command, rename-to:hub, use:"*linux-amd64*"
 fi
 
 zplug "$DOTFILES/fpath", from:local
@@ -87,6 +106,10 @@ if [ -f "$_zplug_lock" ]; then
 fi
 
 zplug load
+
+if [[ $(uname) == 'Linux' ]] && [[ -d /home/linuxbrew ]]; then
+    export PATH="$PATH:/home/linuxbrew/.linuxbrew/bin"
+fi
 
 if [[ -f "$HOME/.private_zshrc" ]]; then
     . $HOME/.private_zshrc

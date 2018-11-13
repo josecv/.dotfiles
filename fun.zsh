@@ -1,10 +1,10 @@
 
-dcleanup() {
+function dcleanup() {
     docker rm -v $(docker ps --filter status=exited -q 2>/dev/null) 2>/dev/null
     docker rmi $(docker images --filter dangling=true -q 2>/dev/null) 2>/dev/null
 }
 
-jose::fast_git() {
+function jose::fast_git() {
     color=""
     if [ -d .git ] || git rev-parse --git-dir > /dev/null 2> /dev/null; then
         branch_name="$(git symbolic-ref HEAD 2>/dev/null)" ||
