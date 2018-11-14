@@ -27,7 +27,11 @@ endif
 
 " Fzf
 let fzf_path=$BREW_PREFIX."/opt/fzf"
-Plug fzf_path
+if filereadable("fzf_path")
+    Plug fzf_path
+else
+    Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+endif
 Plug 'junegunn/fzf.vim'
 
 " Other plugins

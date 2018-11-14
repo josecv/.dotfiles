@@ -71,9 +71,6 @@ fi
 if ! _has_brew bat; then
     zplug "sharkdp/bat", as:command, from:gh-r, rename-to:bat, use:"*x86_64*linux-gnu*"
 fi
-if ! _has_brew fzf; then
-    zplug "junegunn/fzf-bin", from:gh-r, as:command, rename-to:fzf, use:"*linux_amd64*"
-fi
 if ! _has_brew hub; then
     zplug "github/hub", from:gh-r, as:command, rename-to:hub, use:"*linux-amd64*"
 fi
