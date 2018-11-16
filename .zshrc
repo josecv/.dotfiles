@@ -54,6 +54,7 @@ zplug "zsh-users/zsh-autosuggestions"
 
 zplug "chubin/cheat.sh", as:command, rename-to:cht.sh, use:share/cht.sh.txt
 zplug "rupa/z", use:z.sh
+zplug "dylanaraps/neofetch", as:command, use:neofetch
 
 if [[ "$DISABLE_ALI" != 'true' ]]; then
     zplug "aliyun/aliyun-cli", from:gh-r, as:command, rename-to:aliyun
