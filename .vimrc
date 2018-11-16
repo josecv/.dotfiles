@@ -59,6 +59,8 @@ Plug 'c9s/helper.vim'
 Plug 'c9s/treemenu.vim'
 Plug 'c9s/vikube.vim'
 Plug 'mustache/vim-mustache-handlebars'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+
 
 if v:version >= 800
     Plug 'fatih/vim-go'
@@ -95,6 +97,7 @@ nnoremap <LEADER>t :VimuxRunCommand ""<LEFT>
 nnoremap <LEADER>T :VimuxCloseRunner<CR>
 nnoremap <LEADER>mr :VimuxRunCommand "mrn"<CR>
 nnoremap <LEADER>f :ALEFix <CR>
+nnoremap <LEADER>t :NERDTreeFind<CR>
 nnoremap <C-p> :Files<CR>
 
 " Easymotion overwin motions
@@ -132,6 +135,8 @@ let g:ale_virtualenv_dir_names = ['.venv']
 let g:vikube_use_current_namespace = 1
 let g:jedi#show_call_signatures = "0"
 let g:airline_highlighting_cache = 1
+let NERDTreeMinimalUI = 1
+let NERDTreeDirArrows = 1
 
 " Deoplete
 let g:deoplete#enable_at_startup = 1
