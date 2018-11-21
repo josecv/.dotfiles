@@ -9,6 +9,9 @@ POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(context kubecontext custom_fast_git virtualen
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=(status root_indicator background_jobs time)
 POWERLEVEL9K_VCS_GIT_HOOKS=(vcs-detect-changes git-aheadbehind git-tagname)
 POWERLEVEL9K_SHORTEN_DIR_LENGTH=4
+export TERM="xterm-256color"
+
+export ZSH_AUTOSUGGEST_USE_ASYNC="true"
 
 BREW_PREFIX=""
 if [[ $(uname) == 'Darwin' ]]; then
@@ -160,3 +163,5 @@ if [[ -f /usr/local/share/zsh/site-functions/_kubectl ]]; then
     # breaks down
     source /usr/local/share/zsh/site-functions/_kubectl
 fi
+
+[[ -f ~/.fzf.zsh ]] && source ~/.fzf.zsh
