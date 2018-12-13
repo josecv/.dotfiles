@@ -78,6 +78,9 @@ fi
 if ! _has_brew hub; then
     zplug "github/hub", from:gh-r, as:command, rename-to:hub, use:"*linux-amd64*"
 fi
+if ! _has_brew dive; then
+    zplug "wagoodman/dive", from:gh-r, as:command, rename-to:dive, use:"*linux_amd64.tar.gz"
+fi
 
 zplug "$DOTFILES/fpath", from:local
 
