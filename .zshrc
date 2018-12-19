@@ -151,6 +151,14 @@ alias glr='git pull -r'
 alias kgn='k get node'
 alias kdn='k describe node'
 unalias kcp
+_ORIGINAL_ATOM=$(which atom 2> /dev/null)
+
+if [[ -n "$_ORIGINAL_ATOM" ]]; then
+    function _atom {
+        zsh -c "source $HOME/atom_venv/bin/activate; $_ORIGINAL_ATOM \"$@\""
+    }
+    alias atom="_atom"
+fi
 
 function kcmk {
     _switch_context minikube $1
