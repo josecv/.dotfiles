@@ -116,6 +116,10 @@ if [[ $(uname) == 'Linux' ]] && [[ -d /home/linuxbrew ]]; then
     export PATH="$PATH:/home/linuxbrew/.linuxbrew/bin"
 fi
 
+if [[ -d "$HOME/.cargo" ]]; then
+    source $HOME/.cargo/env
+fi
+
 if [[ -f "$HOME/.private_zshrc" ]]; then
     . $HOME/.private_zshrc
 fi
