@@ -60,6 +60,8 @@ Plug 'c9s/treemenu.vim'
 Plug 'c9s/vikube.vim'
 Plug 'mustache/vim-mustache-handlebars'
 Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'rust-lang/rust.vim'
+Plug 'racer-rust/vim-racer'
 
 
 if v:version >= 800
