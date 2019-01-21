@@ -102,6 +102,8 @@ nnoremap <LEADER>mr :VimuxRunCommand "mrn"<CR>
 nnoremap <LEADER>f :ALEFix <CR>
 nnoremap <LEADER>t :NERDTreeFind<CR>
 nnoremap <C-p> :Files<CR>
+vnoremap <LEADER>d64 y:let @"=system('base64 --decode', @")<cr>gvP
+vnoremap <LEADER>e64 y:let @"=system('base64', @")<cr>gvP
 
 " Easymotion overwin motions
 map  <LEADER>f<LEADER> <Plug>(easymotion-bd-f)
