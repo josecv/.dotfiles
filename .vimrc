@@ -62,6 +62,7 @@ Plug 'mustache/vim-mustache-handlebars'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'rust-lang/rust.vim'
 Plug 'racer-rust/vim-racer'
+Plug 'hashivim/vim-terraform'
 
 
 if v:version >= 800
@@ -134,11 +135,13 @@ let g:ale_fixers = {
 \   ],
 \}
 let g:ale_virtualenv_dir_names = ['.venv']
+let g:ale_fix_on_save = 1
 let g:vikube_use_current_namespace = 1
 let g:jedi#show_call_signatures = "0"
 let g:airline_highlighting_cache = 1
 let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 1
+let g:terraform_fmt_on_save=1
 
 " Deoplete
 let g:deoplete#enable_at_startup = 1
