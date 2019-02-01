@@ -89,7 +89,7 @@ fi
 zplug "$DOTFILES/fpath", from:local
 
 if [[ $(uname -m) == 'x86_64' && -z "$DISABLE_PL9K" ]]; then
-    zplug "bhilburn/powerlevel9k", use:powerlevel9k.zsh-theme, at:v0.6.4
+    zplug "bhilburn/powerlevel9k", use:powerlevel9k.zsh-theme
 else
     zplug mafredri/zsh-async, from:github
     zplug sindresorhus/pure, use:pure.zsh, from:github, as:theme
