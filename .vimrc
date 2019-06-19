@@ -147,6 +147,7 @@ let g:airline_highlighting_cache = 1
 let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 1
 let g:terraform_fmt_on_save=1
+let g:rustfmt_autosave = 1
 
 " Deoplete
 let g:deoplete#enable_at_startup = 1
