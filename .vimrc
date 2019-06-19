@@ -79,6 +79,8 @@ syntax on
 
 set t_Co=256
 colorscheme gruvbox
+highlight Normal guibg=black guifg=white
+set background=dark
 set nu
 set hlsearch
 set expandtab
