@@ -146,17 +146,17 @@ export EDITOR=vim
 export VISUAL=vim
 
 alias mrn="MAVEN_OPTS='-Dspring.profiles.active=local-dev,disable-auth' mvn spring-boot:run"
-alias kgpg='k get pods | grep'
-alias kgpwg='k get pods -w | grep'
+alias kgpg='kubectl get pods | grep'
+alias kgpwg='kubectl get pods -w | grep'
 alias gap="git add -p"
 alias gpf='git push -f'
 alias norg='gron --ungron'
-alias kc='k'
+alias kc='kubectl'
 alias pbld='python setup.py build && python setup.py install'
-alias kgpa='k get pods -a'
+alias kgpa='kubectl get pods -a'
 alias glr='git pull -r'
-alias kgn='k get node'
-alias kdn='k describe node'
+alias kgn='kubectl get node'
+alias kdn='kubectl describe node'
 unalias kcp
 _ORIGINAL_ATOM=$(which atom 2> /dev/null)
 
