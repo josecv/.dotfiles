@@ -144,6 +144,7 @@ let g:ale_fix_on_save = 1
 let g:vikube_use_current_namespace = 1
 let g:jedi#show_call_signatures = "0"
 let g:airline_highlighting_cache = 1
+let g:rustfmt_autosave = 1
 let NERDTreeMinimalUI = 1
 let NERDTreeDirArrows = 1
 let g:terraform_fmt_on_save=1
