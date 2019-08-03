@@ -64,6 +64,7 @@ Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'rust-lang/rust.vim'
 Plug 'racer-rust/vim-racer'
 Plug 'hashivim/vim-terraform'
+Plug 'Glench/Vim-Jinja2-Syntax'
 
 
 if v:version >= 800
