@@ -1,7 +1,7 @@
 DOTFILES=$HOME/.dotfiles
 
 # Powerlevel9K config
-PATH="$PATH:$HOME/.local/bin"
+PATH="$HOME/bin:$PATH:$HOME/.local/bin"
 POWERLEVEL9K_MODE='nerdfont-complete'
 POWERLEVEL9K_CUSTOM_FAST_GIT="jose::fast_git"
 POWERLEVEL9K_CUSTOM_FAST_GIT_BACKGROUND="green"
@@ -49,11 +49,12 @@ zplug "plugins/kubectl", from:oh-my-zsh
 zplug "plugins/python", from:oh-my-zsh
 zplug "plugins/pip", from:oh-my-zsh
 zplug "plugins/tmux", from:oh-my-zsh
-zplug "plugins/kops", from:oh-my-zsh
+#zplug "plugins/kops", from:oh-my-zsh
 zplug "plugins/helm", from:oh-my-zsh
 zplug "plugins/cargo", from:oh-my-zsh
 zplug "plugins/rust", from:oh-my-zsh
 zplug "plugins/terraform", from:oh-my-zsh
+zplug "plugins/httpie", from:oh-my-zsh
 
 zplug "MichaelAquilina/zsh-you-should-use"
 zplug "zsh-users/zsh-autosuggestions"
@@ -62,6 +63,7 @@ zplug "chubin/cheat.sh", as:command, rename-to:cht.sh, use:share/cht.sh.txt
 zplug "rupa/z", use:z.sh
 zplug "dylanaraps/neofetch", as:command, use:neofetch
 zplug 'fullstorydev/grpcurl', as:command, from:gh-r, rename-to:grpccurl
+zplug "k14s/kapp", from:gh-r, as:command, rename-to:kapp
 
 if [[ "$DISABLE_ALI" != 'true' ]]; then
     zplug "aliyun/aliyun-cli", from:gh-r, as:command, rename-to:aliyun

@@ -151,6 +151,10 @@ let NERDTreeDirArrows = 1
 let g:terraform_fmt_on_save=1
 let g:rustfmt_autosave = 1
 
+" Go config
+let g:go_metalinter_autosave=1
+let g:go_metalinter_autosave_enabled=['golint', 'govet']
+
 " Deoplete
 let g:deoplete#enable_at_startup = 1
 inoremap <silent><expr> <TAB>
