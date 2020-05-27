@@ -144,6 +144,8 @@ export SAVEHIST=100000
 #These two are used to prevent tmux panes from sharing history.
 setopt noincappendhistory
 setopt nosharehistory
+# Use ! without confirmation.
+unsetopt HIST_VERIFY
 export EDITOR=vim
 export VISUAL=vim
 
