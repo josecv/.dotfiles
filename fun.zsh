@@ -22,3 +22,7 @@ function jose::fast_git() {
         echo "$branch_name $diff"
     fi
 }
+
+function mkv_duration() {
+    mkvmerge --identify -J "$1" | jq -r '.tracks[0].properties.tag_duration'
+}
