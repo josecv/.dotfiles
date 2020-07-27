@@ -42,18 +42,10 @@ fi
 
 zplug "plugins/git", from:oh-my-zsh
 #zplug "plugins/aws", from:oh-my-zsh
-zplug "plugins/docker", from:oh-my-zsh
-zplug "plugins/github", from:oh-my-zsh
-zplug "plugins/mvn", from:oh-my-zsh
 zplug "plugins/kubectl", from:oh-my-zsh
-zplug "plugins/python", from:oh-my-zsh
-zplug "plugins/pip", from:oh-my-zsh
 zplug "plugins/tmux", from:oh-my-zsh
 #zplug "plugins/kops", from:oh-my-zsh
 zplug "plugins/helm", from:oh-my-zsh
-zplug "plugins/cargo", from:oh-my-zsh
-zplug "plugins/rust", from:oh-my-zsh
-zplug "plugins/terraform", from:oh-my-zsh
 zplug "plugins/httpie", from:oh-my-zsh
 
 zplug "MichaelAquilina/zsh-you-should-use"
@@ -62,30 +54,47 @@ zplug "zsh-users/zsh-autosuggestions"
 zplug "chubin/cheat.sh", as:command, rename-to:cht.sh, use:share/cht.sh.txt
 zplug "rupa/z", use:z.sh
 zplug "dylanaraps/neofetch", as:command, use:neofetch
-zplug 'fullstorydev/grpcurl', as:command, from:gh-r, rename-to:grpccurl
-zplug "k14s/kapp", from:gh-r, as:command, rename-to:kapp
 
-if [[ "$DISABLE_ALI" != 'true' ]]; then
-    zplug "aliyun/aliyun-cli", from:gh-r, as:command, rename-to:aliyun
-fi
+if [[ -z "$MINIMAL_ZSH" ]] || [[ "$MINIMAL_ZSH" == 'false' ]]; then
+    zplug "plugins/docker", from:oh-my-zsh
+    zplug "plugins/github", from:oh-my-zsh
+    zplug "plugins/mvn", from:oh-my-zsh
+    zplug "plugins/python", from:oh-my-zsh
+    zplug "plugins/pip", from:oh-my-zsh
+    zplug "plugins/cargo", from:oh-my-zsh
+    zplug "plugins/rust", from:oh-my-zsh
+    zplug "plugins/terraform", from:oh-my-zsh
 
-if ! _has_brew yq; then
-    zplug "mikefarah/yq", as:command, from:gh-r, rename-to:yq
-fi
-if ! _has_brew stern; then
-    zplug "wercker/stern", as:command, from:gh-r, rename-to:stern
-fi
-if ! _has_brew fd; then
-    zplug "sharkdp/fd", as:command, from:gh-r, rename-to:fd
-fi
-if ! _has_brew bat; then
-    zplug "sharkdp/bat", as:command, from:gh-r, rename-to:bat, use:"*x86_64*linux-gnu*"
-fi
-if ! _has_brew hub; then
-    zplug "github/hub", from:gh-r, as:command, rename-to:hub, use:"*linux-amd64*"
-fi
-if ! _has_brew dive; then
-    zplug "wagoodman/dive", from:gh-r, as:command, rename-to:dive, use:"*linux_amd64.tar.gz"
+    if [[ "$DISABLE_ALI" != 'true' ]]; then
+        zplug "aliyun/aliyun-cli", from:gh-r, as:command, rename-to:aliyun
+    fi
+
+    if ! _has_brew grpcurl; then
+        zplug 'fullstorydev/grpcurl', as:command, from:gh-r, rename-to:grpccurl
+    fi
+
+    if ! _has_brew kapp; then
+        zplug "k14s/kapp", from:gh-r, as:command, rename-to:kapp
+    fi
+
+    if ! _has_brew yq; then
+        zplug "mikefarah/yq", as:command, from:gh-r, rename-to:yq
+    fi
+    if ! _has_brew stern; then
+        zplug "wercker/stern", as:command, from:gh-r, rename-to:stern
+    fi
+    if ! _has_brew fd; then
+        zplug "sharkdp/fd", as:command, from:gh-r, rename-to:fd
+    fi
+    if ! _has_brew bat; then
+        zplug "sharkdp/bat", as:command, from:gh-r, rename-to:bat, use:"*x86_64*linux-gnu*"
+    fi
+    if ! _has_brew hub; then
+        zplug "github/hub", from:gh-r, as:command, rename-to:hub, use:"*linux-amd64*"
+    fi
+    if ! _has_brew dive; then
+        zplug "wagoodman/dive", from:gh-r, as:command, rename-to:dive, use:"*linux_amd64.tar.gz"
+    fi
 fi
 
 zplug "$DOTFILES/fpath", from:local
