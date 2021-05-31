@@ -51,7 +51,6 @@ zplug "plugins/httpie", from:oh-my-zsh
 zplug "MichaelAquilina/zsh-you-should-use"
 zplug "zsh-users/zsh-autosuggestions"
 
-zplug "chubin/cheat.sh", as:command, rename-to:cht.sh, use:share/cht.sh.txt
 zplug "rupa/z", use:z.sh
 zplug "dylanaraps/neofetch", as:command, use:neofetch
 
@@ -65,16 +64,8 @@ if [[ -z "$MINIMAL_ZSH" ]] || [[ "$MINIMAL_ZSH" == 'false' ]]; then
     zplug "plugins/rust", from:oh-my-zsh
     zplug "plugins/terraform", from:oh-my-zsh
 
-    if [[ "$DISABLE_ALI" != 'true' ]]; then
-        zplug "aliyun/aliyun-cli", from:gh-r, as:command, rename-to:aliyun
-    fi
-
     if ! _has_brew grpcurl; then
         zplug 'fullstorydev/grpcurl', as:command, from:gh-r, rename-to:grpccurl
-    fi
-
-    if ! _has_brew kapp; then
-        zplug "k14s/kapp", from:gh-r, as:command, rename-to:kapp
     fi
 
     if ! _has_brew yq; then
@@ -100,7 +91,7 @@ fi
 zplug "$DOTFILES/fpath", from:local
 
 if [[ $(uname -m) == 'x86_64' && -z "$DISABLE_PL9K" ]]; then
-    zplug "bhilburn/powerlevel9k", use:powerlevel9k.zsh-theme
+    zplug "romkatv/powerlevel10k", use:powerlevel10k.zsh-theme
 else
     zplug mafredri/zsh-async, from:github
     zplug sindresorhus/pure, use:pure.zsh, from:github, as:theme
@@ -143,7 +134,7 @@ bindkey -v
 bindkey -M vicmd "^V" edit-command-line
 bindkey '^ ' autosuggest-accept
 
-if [[ -f /usr/libexec/java_home ]]; then
+if [[ -f /usr/libexec/java_home ]] && /usr/libexec/java_home > /dev/null 2>&1; then
     export JAVA_HOME=`/usr/libexec/java_home -v 1.8`
 fi
 
