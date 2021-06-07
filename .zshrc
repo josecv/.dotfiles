@@ -153,7 +153,7 @@ alias mrn="MAVEN_OPTS='-Dspring.profiles.active=local-dev,disable-auth' mvn spri
 alias kgpg='kubectl get pods | grep'
 alias kgpwg='kubectl get pods -w | grep'
 alias gap="git add -p"
-alias gpf='git push -f'
+alias gpf='git push --force-with-lease'
 alias norg='gron --ungron'
 alias kc='kubectl'
 alias pbld='python setup.py build && python setup.py install'
