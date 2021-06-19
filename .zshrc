@@ -161,6 +161,7 @@ alias kgpa='kubectl get pods -a'
 alias glr='git pull -r'
 alias kgn='kubectl get node'
 alias kdn='kubectl describe node'
+alias tp='telepresence'
 unalias kcp
 _ORIGINAL_ATOM=$(which atom 2> /dev/null)
 
