@@ -135,6 +135,7 @@ let g:ale_linters = {
             \ 'haskell': ['hdevtools'],
             \ 'python': ['flake8'],
             \ 'Dockerfile': ['hadolint'],
+            \ 'rust': ['cargo'],
 \}
 let g:ale_fixers = {
 \   'python': [
