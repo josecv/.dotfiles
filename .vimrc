@@ -128,7 +128,7 @@ cnoreabbrev mcf MultipleCursorsFind
 let g:vim_markdown_folding_disabled = 1
 let test#strategy = "vimux"
 let g:UltiSnipsExpandTrigger="<C-e>"
-let g:ackprg = 'ag --vimgrep --smart-case'
+let g:ackprg = 'rg --vimgrep --smart-case'
 let g:test#java#maventest#file_pattern = '\v^([Tt]est.*|.*[Tt]est(s|Case)?|.*IT)\.java$'
 let g:ale_linters = {
             \ 'java': [],
@@ -136,6 +136,7 @@ let g:ale_linters = {
             \ 'python': ['flake8'],
             \ 'Dockerfile': ['hadolint'],
             \ 'rust': ['cargo'],
+            \ 'go': ['gopls'],
 \}
 let g:ale_fixers = {
 \   'python': [
@@ -155,7 +156,7 @@ let g:rustfmt_autosave = 1
 
 " Go config
 let g:go_metalinter_autosave=1
-let g:go_metalinter_autosave_enabled=['golint', 'govet']
+let g:go_metalinter_autosave_enabled=['golangci-lint', 'govet']
 
 " Deoplete
 let g:deoplete#enable_at_startup = 1
