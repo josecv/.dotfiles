@@ -36,7 +36,7 @@ zplug "robbyrussell/oh-my-zsh", use:oh-my-zsh.sh
 DISABLE_AUTO_UPDATE=true
 
 if [[ $(uname) == 'Darwin' ]]; then
-    zplug "plugins/osx", from:oh-my-zsh
+    zplug "plugins/macos", from:oh-my-zsh
     zplug "plugins/brew", from:oh-my-zsh
 fi
 
@@ -60,7 +60,6 @@ if [[ -z "$MINIMAL_ZSH" ]] || [[ "$MINIMAL_ZSH" == 'false' ]]; then
     zplug "plugins/mvn", from:oh-my-zsh
     zplug "plugins/python", from:oh-my-zsh
     zplug "plugins/pip", from:oh-my-zsh
-    zplug "plugins/cargo", from:oh-my-zsh
     zplug "plugins/rust", from:oh-my-zsh
     zplug "plugins/terraform", from:oh-my-zsh
 
